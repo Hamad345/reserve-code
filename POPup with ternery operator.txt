@@ -1,0 +1,38 @@
+IN APP.js
+import React, { useState } from 'react'
+import PopUp from './PopUp'
+
+export default function App() {
+const[Pop,setPopUp]=useState(false)
+  
+  return (
+    <>
+     <div className='flex justify-center'>
+  {Pop ? (
+    <PopUp />
+  ) : (
+    <button className='w-20 h-5 bg-red-600 text-white' onClick={() => setPopUp(true)}>
+      CLICK ME
+    </button>
+  )}
+</div>
+
+    </>
+  )
+}
+
+
+
+THE COMPONENT TO BE POP
+import React from 'react'
+
+export default function PopUp() {
+  return (
+    <div className='border-4'>
+    
+      <h6 className=''>Heloo pop up</h6>
+      
+    </div>
+  )
+}
+popuu using &&-------->{modal &&}

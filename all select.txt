@@ -1,0 +1,43 @@
+const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    setUsers(userData);
+  }, []);
+
+  const handleChange = (e) => {
+    const { name, checked } = e.target;
+    if (name === "allSelect") {
+      let tempUser = users.map((user) => {
+        return { ...user, isChecked: checked };
+      });
+      setUsers(tempUser);
+    } else {
+      let tempUser = users.map((user) =>
+        user.name === name ? { ...user, isChecked: checked } : user
+      );
+      setUsers(tempUser);
+    }
+  };
+
+
+       <thead className=' bg-[#F3F3F3]  w-[990px] h-14 border rounded-2xl absolute -mt-14' >
+             <tr className='' >
+             <th className='accent-black'> <input type="checkbox" className="form-check-input" name="allSelect" checked={!users.some((user) => user?.isChecked !== true)} onChange={handleChange} /></th>
+             <th className='absolute ml-5 font-extralight font-[Poppins]'>Full name</th>
+             <th className=' absolute ml-[340px] font-extralight font-[Poppins]' >Email</th>
+             <th className='absolute ml-[720px] font-extralight font-[Poppins]' >Account type</th>
+             <th className='font-extralight font-[Poppins] absolute ml-[850px]' >Action</th>
+             </tr>
+      </thead>   
+      <tbody className='' >
+        {users.map((user, index)=>(
+          <tr key={user}  className='mt-[00px]'>
+            <td className='font-semibold font-[Poppins] accent-black '> <input type="checkbox" className="form-check-input" name={user.name}  checked={user?.isChecked || false} onChange={handleChange}  /></td>
+            <td className="flex gap-x-2 font-semibold font-[Poppins]"><img src={user.img}></img>{user.name}</td>
+            <td className='font-semibold font-[Poppins]'>{user.email}</td>
+            <td className='font-semibold font-[Poppins]'>{user.Acc}</td>
+            <td className='font-semibold font-[Poppins]'> {user.action}</td>
+            
+          </tr>
+        ))}
+ 

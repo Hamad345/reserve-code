@@ -1,0 +1,15 @@
+ const [selectedOption, setSelectedOption] = useState('');
+  const navigate = useNavigate();
+  const handleChange = (event) => {
+    setSelectedOption(event.target.value);
+    navigate(event.target.value); 
+  };
+ <select value={selectedOption} onChange={handleChange} className='bg-[#F2F2F2] border-[1px] rounded-[35px] ml-6 mt-3 font-bold text-md'>
+    <option value="/CategoryManage">All Categories</option>
+    <option value="/CategoryMen" >Men</option>
+    <option value="/option3">Women</option>
+    <option value="/option3">Bag</option>
+    <option value="/option3">Accessories</option>
+
+
+   </select>

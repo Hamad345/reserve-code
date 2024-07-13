@@ -1,0 +1,35 @@
+ isSelected: false //must be with all items
+ const [users, setUsers] = useState([]);
+  const [selectedCount, setSelectedCount] = useState(0);
+
+  useEffect(() => {
+    setUsers(userData);
+  }, []);
+
+  const handleChange = (e) => {
+    const { name, checked } = e.target;
+    if (name === "allSelect") {
+      let tempUser = users.map((user) => {
+        return { ...user, isChecked: checked };
+      });
+      setUsers(tempUser);
+      setSelectedCount(checked ? users.length : 0);
+    } else {
+      let tempUser = users.map((user) =>
+        user.name === name ? { ...user, isChecked: checked } : user
+      );
+      setUsers(tempUser);
+       
+       const updatedCount = checked ? selectedCount + 1 : selectedCount - 1;
+       setSelectedCount(updatedCount); 
+    }
+  };
+return
+
+      <button
+  className={`bg-[#F3F3F3] w-40 border-1 border-black rounded-3xl h-8 mt-4 text-sm ml-2 hover:bg-[${selectedCount >= 1 ? `#FF0000` : `#000000` }] hover:text-white font-[Poppins]`}
+  disabled={selectedCount === 0} 
+       
+      >
+       {selectedCount >= 1 ? "Selected Delete" : "Create New User"}
+      </button> 
