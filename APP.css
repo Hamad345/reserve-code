@@ -1,0 +1,29 @@
+body{
+    width: screen;
+    height: screen;
+    background-color: #F0E7D6;
+}
+.next-portion{
+
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+   margin-top: 10px;
+}
+tr{
+    display: flex;
+    
+}
+@media (max-width: 426px)  {
+    .next-portion{
+ display: flex;
+ flex-direction: column;
+  }
+  body{
+    width: 100%;
+  }
+}
+  
+
+
